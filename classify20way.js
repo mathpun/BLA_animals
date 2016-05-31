@@ -6,7 +6,7 @@ $(document).ready(function() {
 	var nway = 4; // n-way classification tasl
 	
 	// Selected demo images
-	latin_id = 3;
+	latin_id = 2;
 	greek_id = 2;
 	
 	var spec = {};
