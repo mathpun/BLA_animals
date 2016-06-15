@@ -31,7 +31,7 @@ var classification = function (spec,my) {
 	// PARAMETERS
 	my.feedback_on = true; // display feedback after each trial?
 	my.random_choices = false; // randomize order of training image choices?
-	my.size_img  = 70; // size of the images
+	my.size_img  = 90; // size of the images
 	
 	my.trial_num = 0;  // current trial number
     my.trial_type = new Array(); // ground truth type of each trial
