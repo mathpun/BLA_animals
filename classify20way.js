@@ -8,6 +8,7 @@ $(document).ready(function() {
 	// Selected demo images
 	latin_id = 2;
 	greek_id = 2;
+	snake_id = 1;
 
 	var spec = {};
 	spec.list_condition = ['a','b'];
@@ -52,11 +53,12 @@ var getlist_train = function (type,ntask,nway) {
 };
 
 // Get just the two test images for the demo
-var getlist_test_demo = function (latin_id,greek_id) {
+var getlist_test_demo = function (latin_id,greek_id,snake_id) {
 	var list = new Array();
 	var dname = 'images_classif_demo/';
   	list[0] = dname + 'latin_test' + latin_id + '.png';
 	list[1] = dname + 'greek_test' + greek_id + '.png';
+	list[2] = dname + 'snake_test' + snake_id + '.png';
 	return list;
 };
 
@@ -74,5 +76,10 @@ var getlist_train_demo = function (nway) {
 	for (var c=1; c <= nway; c++ ) {
   		list[1][c-1] = dname + 'greek_train' + c + '.png';
     }
+
+		list[2] = new Array();
+		for (var c=1; c <= nway; c++ ) {
+	  		list[2][c-1] = dname + 'snake_train' + c + '.png';
+	    }
 	return list;
 };
