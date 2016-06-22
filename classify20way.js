@@ -81,5 +81,6 @@ var getlist_train_demo = function (nway) {
 	for (var c=1; c <= nway; c++ ) {
 	  	list[2][c-1] = dname + 'snake_train' + c + '.png';
 	  }
+
 	return list;
 };
