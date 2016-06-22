@@ -19,7 +19,7 @@ $(document).ready(function() {
 	var data = {};
 	data.imglist_test = getlist_test(condition,ntask,nway);
 	data.imglist_list_train = getlist_train(condition,ntask,nway);
-	data.imglist_demo = getlist_test_demo(latin_id,greek_id);
+	data.imglist_demo = getlist_test_demo(latin_id,greek_id,snake_id);
 	data.imglist_list_demo = getlist_train_demo(nway);
 	task.load_images(data);
 	console.log("imglist_test:"+data.imglist_test);
