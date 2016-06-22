@@ -8,7 +8,7 @@ $(document).ready(function() {
 	// Selected demo images
 	latin_id = 2;
 	greek_id = 2;
-	snake_id = 1;
+	snake_id = 4;
 
 	var spec = {};
 	spec.list_condition = ['a','b'];
