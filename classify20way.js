@@ -77,9 +77,9 @@ var getlist_train_demo = function (nway) {
   		list[1][c-1] = dname + 'greek_train' + c + '.png';
     }
 
-		list[2] = new Array();
-		for (var c=1; c <= nway; c++ ) {
-	  		list[2][c-1] = dname + 'snake_train' + c + '.png';
-	    }
+	list[2] = new Array();
+	for (var c=1; c <= nway; c++ ) {
+	  	list[2][c-1] = dname + 'snake_train' + c + '.png';
+	  }
 	return list;
 };
