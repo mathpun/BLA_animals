@@ -60,7 +60,7 @@ var getlist_test_demo = function (latin_id,greek_id,snake_id) {
   	list[0] = dname + 'latin_test' + latin_id + '.png';
 	list[1] = dname + 'greek_test' + greek_id + '.png';
 	list[2] = dname + 'snake_test' + snake_id + '.png';
-	list[3] = dname + 'bird_id' + bird_id + '.png';
+	list[3] = dname + 'bird_test' + bird_id + '.png';
 	return list;
 };
 
