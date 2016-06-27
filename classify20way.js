@@ -55,7 +55,7 @@ var getlist_train = function (type,ntask,nway) {
 };
 
 // Get just the two test images for the demo
-var getlist_test_demo = function (latin_id,greek_id,snake_id) {
+var getlist_test_demo = function (latin_id,greek_id,snake_id,bird_id,lizard_id) {
 	var list = new Array();
 	var dname = 'images_classif_demo/';
   	list[0] = dname + 'latin_test' + latin_id + '.png';
