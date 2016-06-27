@@ -3,7 +3,7 @@ $(document).ready(function() {
 
 	// Parameters
 	var ntask = 10; // how many different tasks (alphabets) are there?
-	var nway = 6; // n-way classification tasl
+	var nway = 4; // n-way classification tasl
 	var ntest = 15; // just a test variable to see how to make more trials 
 
 	// Selected demo images
