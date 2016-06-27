@@ -68,7 +68,7 @@ var getlist_test_demo = function (latin_id,greek_id,snake_id,bird_id,lizard_id) 
 };
 
 // Get two lists of training images
-var getlist_train_demo = function (ntask) {
+var getlist_train_demo = function (ntest) {
 	var list = new Array();
 	var dname = 'images_classif_demo/';
 
