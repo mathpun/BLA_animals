@@ -67,32 +67,32 @@ var getlist_test_demo = function (latin_id,greek_id,snake_id,bird_id,lizard_id) 
 };
 
 // Get two lists of training images
-var getlist_train_demo = function (nway) {
+var getlist_train_demo = function (ntask) {
 	var list = new Array();
 	var dname = 'images_classif_demo/';
 
 	list[0] = new Array();
-	for (var c=1; c <= nway; c++ ) {
+	for (var c=1; c <= ntask; c++ ) {
   		list[0][c-1] = dname + 'latin_train' + c + '.png';
   	}
 
 	list[1] = new Array();
-	for (var c=1; c <= nway; c++ ) {
+	for (var c=1; c <= ntask; c++ ) {
   		list[1][c-1] = dname + 'greek_train' + c + '.png';
     }
 
 	list[2] = new Array();
-	for (var c=1; c <= nway; c++ ) {
+	for (var c=1; c <= ntask; c++ ) {
 	  	list[2][c-1] = dname + 'snake_train' + c + '.png';
 	  }
 
 	list[3] = new Array();
-	for (var c=1; c <= nway; c++ ) {
+	for (var c=1; c <= ntask; c++ ) {
 	  	list[3][c-1] = dname + 'bird_train' + c + '.png';
 	  }
 
 	list[4] = new Array();
-	for (var c=1; c <= nway; c++ ) {
+	for (var c=1; c <= ntask; c++ ) {
 	  	list[4][c-1] = dname + 'lizard_train' + c + '.png';
 	  }
 
