@@ -21,7 +21,7 @@ $(document).ready(function() {
 
 	var data = {};
 	data.imglist_test = getlist_test(condition,ntask,nway);
-	data.imglist_list_train = getlist_train(condition,ntask,nway);
+	data.imglist_list_train = getlist_train(condition,ntask,ntest);
 	data.imglist_demo = getlist_test_demo(latin_id,greek_id,snake_id,bird_id,lizard_id);
 	data.imglist_list_demo = getlist_train_demo(nway);
 	task.load_images(data);
@@ -43,12 +43,12 @@ var getlist_test = function (type,ntask,nway) {
 };
 
 // enumerate the image set which is the training images
-var getlist_train = function (type,ntask,nway) {
+var getlist_train = function (type,ntask,ntest) {
     var list = new Array();
     var dname = 'images_classif/';
   	for (var i=1; i <= ntask; i++) {
   		list[i-1] = new Array();
-  		for (var c=1; c <= nway; c++ ) {
+  		for (var c=1; c <= ntest; c++ ) {
   			list[i-1][c-1] = dname + 'task' + i + type + '_train' + c + '.png';
   		}
   	}
