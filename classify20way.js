@@ -4,6 +4,7 @@ $(document).ready(function() {
 	// Parameters
 	var ntask = 10; // how many different tasks (alphabets) are there?
 	var nway = 4; // n-way classification tasl
+	var ntest = 8; / just a test variable to see how to make more trials 
 
 	// Selected demo images
 	latin_id = 2;
@@ -72,27 +73,27 @@ var getlist_train_demo = function (ntask) {
 	var dname = 'images_classif_demo/';
 
 	list[0] = new Array();
-	for (var c=1; c <= ntask; c++ ) {
+	for (var c=1; c <= ntest; c++ ) {
   		list[0][c-1] = dname + 'latin_train' + c + '.png';
   	}
 
 	list[1] = new Array();
-	for (var c=1; c <= ntask; c++ ) {
+	for (var c=1; c <= ntest; c++ ) {
   		list[1][c-1] = dname + 'greek_train' + c + '.png';
     }
 
 	list[2] = new Array();
-	for (var c=1; c <= ntask; c++ ) {
+	for (var c=1; c <= ntest; c++ ) {
 	  	list[2][c-1] = dname + 'snake_train' + c + '.png';
 	  }
 
 	list[3] = new Array();
-	for (var c=1; c <= ntask; c++ ) {
+	for (var c=1; c <= ntest; c++ ) {
 	  	list[3][c-1] = dname + 'bird_train' + c + '.png';
 	  }
 
 	list[4] = new Array();
-	for (var c=1; c <= ntask; c++ ) {
+	for (var c=1; c <= ntest; c++ ) {
 	  	list[4][c-1] = dname + 'lizard_train' + c + '.png';
 	  }
 
