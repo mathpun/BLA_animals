@@ -4,7 +4,7 @@ $(document).ready(function() {
 	// Parameters
 	var ntask = 10; // how many different tasks (alphabets) are there?
 	var nway = 4; // n-way classification tasl
-	var ntest = 8; // just a test variable to see how to make more trials 
+	var ntest = 15; // just a test variable to see how to make more trials 
 
 	// Selected demo images
 	latin_id = 2;
@@ -30,11 +30,11 @@ $(document).ready(function() {
 });
 
 // randomly choose a "test" image for each trial
-var getlist_test = function (type,ntask,nway) {
+var getlist_test = function (type,ntest,nway) {
     var list = new Array();
     var dname = 'images_classif/';
   	var count = 0;
-  	for (var i=1; i <= ntask; i++) {
+  	for (var i=1; i <= ntest; i++) {
   		var c = tu.randint(1,nway); // random choice of the image
   		list[count] = dname + 'task' + i + type + '_test' + c + '.png';
   		count++;
