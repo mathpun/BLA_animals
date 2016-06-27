@@ -21,7 +21,7 @@ $(document).ready(function() {
 
 	var data = {};
 	data.imglist_test = getlist_test(condition,ntask,nway);
-	data.imglist_list_train = getlist_train(condition,ntest,nway);
+	data.imglist_list_train = getlist_train(condition,ntask,nway);
 	data.imglist_demo = getlist_test_demo(latin_id,greek_id,snake_id,bird_id,lizard_id);
 	data.imglist_list_demo = getlist_train_demo(nway);
 	task.load_images(data);
@@ -30,11 +30,11 @@ $(document).ready(function() {
 });
 
 // randomly choose a "test" image for each trial
-var getlist_test = function (type,ntest,nway) {
+var getlist_test = function (type,ntask,nway) {
     var list = new Array();
     var dname = 'images_classif/';
   	var count = 0;
-  	for (var i=1; i <= ntest; i++) {
+  	for (var i=1; i <= ntask; i++) {
   		var c = tu.randint(1,nway); // random choice of the image
   		list[count] = dname + 'task' + i + type + '_test' + c + '.png';
   		count++;
