@@ -12,6 +12,7 @@ $(document).ready(function() {
 	snake_id = 4;
 	bird_id = 1;
 	lizard_id = 2;
+	seahorse_id = 4;
 
 	var spec = {};
 	spec.list_condition = ['a','b'];
@@ -22,7 +23,7 @@ $(document).ready(function() {
 	var data = {};
 	data.imglist_test = getlist_test(condition,ntask,nway);
 	data.imglist_list_train = getlist_train(condition,ntask,nway);
-	data.imglist_demo = getlist_test_demo(greek_id,snake_id,bird_id,lizard_id);
+	data.imglist_demo = getlist_test_demo(greek_id,snake_id,bird_id,lizard_id, seahorse_id);
 	data.imglist_list_demo = getlist_train_demo(nway);
 	task.load_images(data);
 	console.log("imglist_test:"+data.imglist_test);
@@ -64,6 +65,7 @@ var getlist_test_demo = function (greek_id,snake_id,bird_id,lizard_id) {
 	list[1] = dname + 'snake_test' + snake_id + '.png';
 	list[2] = dname + 'bird_test' + bird_id + '.png';
 	list[3] = dname + 'lizard_test' + lizard_id + '.png';
+	list[4] = dname + 'seahorse_test' + seahorse_id + '.png';
 	return list;
 };
 
@@ -96,6 +98,11 @@ var getlist_train_demo = function (nway) {
 	for (var c=1; c <= nway; c++ ) {
 	  	list[3][c-1] = dname + 'lizard_train' + c + '.png';
 	  }
+
+		list[4] = new Array();
+		for (var c=1; c <= nway; c++ ) {
+		  	list[4][c-1] = dname + 'seahorse_train' + c + '.png';
+		  }
 
 	return list;
 };
