@@ -4,7 +4,7 @@ $(document).ready(function() {
 	// Parameters
 	var ntask = 10; // how many different tasks (alphabets) are there?
 	var nway = 4; // n-way classification tasl
-	var ntest = 15; // just a test variable to see how to make more trials 
+	var ntest = 15; // just a test variable to see how to make more trials
 
 	// Selected demo images
 	//latin_id = 2;
@@ -63,7 +63,7 @@ var getlist_test_demo = function (greek_id,snake_id,bird_id,lizard_id) {
 	list[0] = dname + 'greek_test' + greek_id + '.png';
 	list[1] = dname + 'snake_test' + snake_id + '.png';
 	list[2] = dname + 'bird_test' + bird_id + '.png';
-	list[3] - dname + 'lizard_test' + lizard_id + '.png';
+	list[3] = dname + 'lizard_test' + lizard_id + '.png';
 	return list;
 };
 
