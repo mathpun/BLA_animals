@@ -23,7 +23,7 @@ $(document).ready(function() {
 	var data = {};
 	data.imglist_test = getlist_test(condition,ntask,nway);
 	data.imglist_list_train = getlist_train(condition,ntask,nway);
-	data.imglist_demo = getlist_test_demo(greek_id,snake_id,bird_id,lizard_id, seahorse_id);
+	data.imglist_demo = getlist_test_demo(greek_id,snake_id,bird_id,lizard_id,seahorse_id);
 	data.imglist_list_demo = getlist_train_demo(nway);
 	task.load_images(data);
 	console.log("imglist_test:"+data.imglist_test);
@@ -57,7 +57,7 @@ var getlist_train = function (type,ntask,nway) {
 };
 
 // Get just the two test images for the demo
-var getlist_test_demo = function (greek_id,snake_id,bird_id,lizard_id) {
+var getlist_test_demo = function (greek_id,snake_id,bird_id,lizard_id,seahorse_id) {
 	var list = new Array();
 	var dname = 'images_classif_demo/';
 //  	list[0] = dname + 'latin_test' + latin_id + '.png';
