@@ -63,8 +63,8 @@ var classification = function (spec,my) {
 	my.div_header = 'header';
 
 	// messages
-	my.msg_correct = '<font size="5">Correct!</font>';
-	my.msg_incorrect = '<font size="5">Incorrect! The right answer is shown in </font><font size="5" color="blue">blue</font>';
+	my.msg_correct = '<font size="5">You got it!</font>';
+	my.msg_incorrect = '<font size="5">Sorry that is wrong! The right answer is shown in </font><font size="5" color="blue">blue</font>';
 
 	// css classes
 	my.css_cell_type = 'bordered_cell';
