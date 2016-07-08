@@ -33,17 +33,35 @@ var classification = function (spec,my) {
 	my.random_choices = false; // randomize order of training image choices?
 	my.size_img  = 200; // size of the images
 
-	my.trial_num = 0;  // current trial number
-    my.trial_type = new Array(); // ground truth type of each trial
-    my.trial_resp = new Array(); // subject's guess about the trial type
-    my.trial_correct = new Array(); // was the response correct?
-    my.trial_show = new Array(); // what "test image" was shown as the example?
+  //EK: trying to use query parameter to later decide the order of the stimuli
+	var str = window.location.href;
+  var res = str.match(/animals_first/g);
 
-    my.trial_practice = new Array();
-    my.acc = 0; // accuracy during the experiment
-    my.num_trials; // total number of trials
-    my.ntrials_override;
-    my.ndemo; // how many of those trials are practice trials
+	//EK: Here we created stim_seq which will allow us to pick if the animal trials go first or the letters
+	//EK: stim_seq is a list of stimulus names and trial_num will be used as an index into this list
+	//EK: should work but downstream something is preventing it from working
+	my.stim_seq = [];
+	//not animal ones first
+	if (res == null) {
+		my.stim_seq = [6,7,8,9,10,1,2,3,4,5];
+	}
+	else {
+		my.stim_seq = [1,2,3,4,5,6,7,8,9,10];
+	}
+
+	my.trial_num = 0;  // current trial number
+	//EK: Where does each array element get assigned for my.trial_type (next line)
+	//EK: When we print all the elements, many are undefined
+  my.trial_type = new Array(); // ground truth type of each trial
+  my.trial_resp = new Array(); // subject's guess about the trial type
+  my.trial_correct = new Array(); // was the response correct?
+  my.trial_show = new Array(); // what "test image" was shown as the example?
+
+  my.trial_practice = new Array();
+  my.acc = 0; // accuracy during the experiment
+  my.num_trials; // total number of trials
+  my.ntrials_override;
+  my.ndemo; // how many of those trials are practice trials
 
 	my.list_imgs_train = new Array(); // list of list of 20 training images
 	my.imgs_test = new Array(); // list of test images
@@ -153,6 +171,7 @@ var classification = function (spec,my) {
 
     // extract the "class number" from a file name
    	var extract_num = function (str) {
+			//assert(24 == 5, 'number equality')
    		var indx = str.search('.png')-1;
    		var num = str.charAt(indx);
    		indx--;
@@ -168,6 +187,8 @@ var classification = function (spec,my) {
     // are the images from the same class?
     // this relies on naming convensions "train5" vs. "test5"
     var is_same_class = function (obj1,obj2) {
+			console.log('obj1:'+ obj1);
+			console.log('obj2:'+ obj2);
     	if (typeof obj1 !== 'string') {
     		var fn1 = $(obj1).attr('src');
 	    	var fn2 = $(obj2).attr('src');
@@ -182,14 +203,18 @@ var classification = function (spec,my) {
 
     // display a trial
     my.display_trial = function () {
-
-    	var indx_trial = my.trial_num-1;
+			console.log("CALL DISPLAY TRAIL")
+    	//var indx_trial = my.trial_num-1;
+			// greg says we are replacing trial_num with array with stim_seq
+			console.log(my.trial_num-1);
+			var indx_trial = my.stim_seq[my.trial_num - 1];
 
     	$('#'+my.div_header).text('Trial ' + my.trial_num + ' of ' + my.num_trials);
 
     	// display the TEST image
     	var testcell = $('<td/>').attr('class','bordered_cell');
     	var itest = my.imgs_test[indx_trial];
+			console.log("itest: " + itest);
     	$('#' + my.div_test).html($(testcell).append(itest));
 
     	// display the K TRAINING images
@@ -207,6 +232,7 @@ var classification = function (spec,my) {
 
     	for (var i=0; i<imgs_train.length; i++) {
     		var itrain = imgs_train[i];
+				console.log('what is itrain:' + itrain);
     		row = $(row).append(new_cell(itrain,i+1));
     		row_count++;
     		if (i === imgs_train.length-1 || row_count > ncol) { // if last trial or row is complete
@@ -219,6 +245,12 @@ var classification = function (spec,my) {
     		if (is_same_class(itrain,itest)) {
     			 if (my.trial_type[indx_trial] === '') {
     			 	 // file name of the training image that we want them to select
+						 console.log('This is what itrain is:' + itrain);
+						//  assert(typeof itrain == 'string','itrain correct type');
+						 assert($(itrain).length > 0, 'Successful itrain lookup');
+						 assert($(itrain).attr('src') != 'undefined', 'itrain has src attr');
+
+						 //EK: we are confused about why some trial_type elements are being assigned and others not
     				 my.trial_type[indx_trial] = $(itrain).attr('src');
     			 }
     			 else {
@@ -317,6 +349,14 @@ var classification = function (spec,my) {
     	 my.selected_id = train_img_id;
     	 $('#'+my.selected_id).attr('class',my.css_select_border);
     	 my.trial_resp[indx_trial] = $('#'+my.selected_id).attr('src');
+			 console.log("my.trial_type:" + my.trial_type);
+			 console.log("length of my.trial_type:" + my.trial_type.length);
+			 console.log("indx_trial:" + indx_trial);
+			 console.log("indx element of trial type:" + my.trial_type[indx_trial]);
+			 for (i=0; i < my.trial_type.length; i++) {
+				 console.log("my_trial[" + i + "]" + my.trial_type[i]);
+			 }
+			 //EK: my.trial_type[indx_trial] is undefined, why?
     	 my.trial_correct[indx_trial] = is_same_class(my.trial_resp[indx_trial],my.trial_type[indx_trial]);
     	 $('#'+my.div_button_accept).attr('style','');
     };
@@ -383,3 +423,13 @@ var classification = function (spec,my) {
 
 	return that;
 };
+
+function assert(condition, message) {
+    if (!condition) {
+        message = message || "Assertion failed";
+        if (typeof Error !== "undefined") {
+            throw new Error(message);
+        }
+        throw message; // Fallback
+    }
+}
