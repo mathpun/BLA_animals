@@ -31,11 +31,8 @@ var classification = function (spec,my) {
 	// PARAMETERS
 	my.feedback_on = true; // display feedback after each trial?
 	my.random_choices = false; // randomize order of training image choices?
-<<<<<<< HEAD
-	my.size_img  = 70; // size of the images
-=======
 	my.size_img  = 200; // size of the images
->>>>>>> gh-pages
+
 
 	my.trial_num = 0;  // current trial number
     my.trial_type = new Array(); // ground truth type of each trial
@@ -67,13 +64,8 @@ var classification = function (spec,my) {
 	my.div_header = 'header';
 
 	// messages
-<<<<<<< HEAD
-	my.msg_correct = '<font size="5">Correct!</font>';
-	my.msg_incorrect = '<font size="5">Incorrect! The right answer is shown in </font><font size="5" color="blue">blue</font>';
-=======
 	my.msg_correct = '<font size="5"><font color="#FF1493">You got it!</font>';
 	my.msg_incorrect = '<font size="5"><font color="#FF1493">Sorry! The right answer is shown in </font><font size="5" color="blue">blue</font>';
->>>>>>> gh-pages
 
 	// css classes
 	my.css_cell_type = 'bordered_cell';
@@ -392,11 +384,8 @@ var classification = function (spec,my) {
 
 	return that;
 };
-<<<<<<< HEAD
 
-//Prevent screen from being scrollable - kids scroll too much 
+//Prevent screen from being scrollable - kids scroll too much
 $('body').bind('touchmove', function(e){
   e.preventDefault();
 });
-=======
->>>>>>> gh-pages
